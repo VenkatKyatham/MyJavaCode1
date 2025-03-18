@@ -1,6 +1,7 @@
 package com.testNG;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -20,6 +21,9 @@ public class Assignmen13_Alert {
 		Thread.sleep(3000);
 		
 		driver.switchTo().alert().accept();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.id("timerAlertButton")));
 		
 		driver.findElement(By.id("timerAlertButton")).click();
 		Thread.sleep(6000);
